@@ -12,10 +12,6 @@ export function login(credentials) {
   return sendRequest(`${BASE_URL}/login`, 'POST', credentials);
 }
 
-export function checkToken() {
-  return sendRequest(`${BASE_URL}/check-token`)
-}
-
 // export async function login(credentials) {
 //   // Fetch uses an options object as a second arg to make
 //   // requests other than GET and/or send data and/or set headers
