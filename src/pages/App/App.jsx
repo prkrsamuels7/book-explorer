@@ -18,7 +18,7 @@ function App() {
           <Routes>
             {/* Route components in here */}
             <Route path="/" element={<GenreListPage />} />
-            <Route path="/books/:bookId" element={<BookDetailPage />} />
+            <Route path="/books/:bookApiId" element={<BookDetailPage />} />
           </Routes>
         </>
         :

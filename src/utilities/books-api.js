@@ -6,6 +6,6 @@ export function getBooksByGenre() {
   return sendRequest(BASE_URL)
 }
 
-export function getBookById(id) {
+export function getBookByApiId(id) {
   return sendRequest(`${BASE_URL}/${id}`)
 }

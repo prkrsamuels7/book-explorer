@@ -6,6 +6,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 // GET /api/books/
 router.get('/', booksCtrl.getBooksByGenre);
 // GET /api/books/:bookId
-router.get('/:id', booksCtrl.getBookById);
+router.get('/:apiId', booksCtrl.getBookByApiId);
 
 module.exports = router;
