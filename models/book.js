@@ -12,7 +12,6 @@ const bookSchema = new Schema({
   rating: { type: Number },
   imageLinks: { type: Object },
   watchers: [{type: Schema.Types.ObjectId, ref: 'User'}],
-    
 })
 
 module.exports = mongoose.model('Book', bookSchema)

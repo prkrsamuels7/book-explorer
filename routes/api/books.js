@@ -3,7 +3,9 @@ const router = express.Router();
 const booksCtrl = require('../../controllers/api/books');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
-
+// GET /api/books/
 router.get('/', booksCtrl.getBooksByGenre);
+// GET /api/books/:bookId
+router.get('/:id', booksCtrl.getBookById);
 
 module.exports = router;
