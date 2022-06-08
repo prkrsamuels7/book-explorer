@@ -7,7 +7,8 @@ const API_KEY = process.env.API_KEY;
 
 (async function () {
   await Book.deleteMany({});
-  const genres = ['fiction', 'biography', 'Literary collections', 'poetry', 'computers', 'graphic novel', 'humor', 'comics']
+  // To return different books on the home page, change these genres here and in controllers/books/js
+  const genres = ['Fiction', 'Poetry', 'Historical', 'General', 'Computers', 'Biography & Autobiography', 'Literary Criticism', 'Thrillers']
   const bookIdsByGenre = []; // holds 'categories' and respective Ids
 
   try {
@@ -19,6 +20,9 @@ const API_KEY = process.env.API_KEY;
       bookIdsByGenre.push({ [genre]: ids })
     }
 
+    // function sleep(ms) {
+    //   return new Promise(resolve => setTimeout(resolve, ms));
+    // }
     const promises = [];
     bookIdsByGenre.forEach(book => {
       Object.values(book).forEach(arrOfIds => {
@@ -29,27 +33,27 @@ const API_KEY = process.env.API_KEY;
     })
 
     let books = await Promise.all(promises);
-    books = books.filter(book => book.id && book.volumeInfo && 
+    books = books.filter(book => book.id && book.volumeInfo &&
       book.volumeInfo.title && book.volumeInfo.authors &&
       book.volumeInfo.publisher && book.volumeInfo.publishedDate &&
       book.volumeInfo.description && book.volumeInfo.categories &&
       book.volumeInfo.averageRating && book.volumeInfo.imageLinks
-  );
+    );
 
     for (const book of books) {
-     let newCategories = book.volumeInfo.categories
-     newCategories = categories.map(c => c.split(' / '))
-     newCategories = [...newCategories[0], ...newCategories[1]]
-     newCategories = [...new Set(newCategories)]
+      let newCategories = book.volumeInfo.categories
+      newCategories = newCategories.reduce((acc, cat) => acc.concat(cat.split(' / ')), [])
+      newCategories = [...new Set(newCategories)]
       const bookDoc = await Book.create(
         {
           apiId: book.id, title: book.volumeInfo.title, authors: book.volumeInfo.authors,
           publisher: book.volumeInfo.publisher, publishedDate: book.volumeInfo.publishedDate,
-          description: book.volumeInfo.description, categories: [newCategories], rating: book.volumeInfo.averageRating,
+          description: book.volumeInfo.description, categories: newCategories, rating: book.volumeInfo.averageRating,
           imageLinks: book.volumeInfo.imageLinks
         }
       )
     }
+
   } catch (err) {
     console.log(err)
   }

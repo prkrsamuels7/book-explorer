@@ -5,7 +5,7 @@ const bookSchema = new Schema({
   apiId: { type: String, required: true},
   title: { type: String, required: true},
   authors: [{ type: String }],
-  publisher: { type: String},
+  publisher: { type: String },
   publishedDate: { type: String },
   description: { type: String },
   categories: [{ type: String }],
