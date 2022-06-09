@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import * as booksAPI from '../../utilities/books-api'
+import SearchPageItem from '../../components/SearchPageItem/SearchPageItem'
 import './SearchPage.css'
 
 
@@ -8,17 +9,12 @@ export default function SearchPage() {
   const [books, setBooks] = useState([])
 
   // this function runs everytime title state is updated
-  // Needs to go inside of useEffect
   async function handleSearchTitle(evt) {
     evt.preventDefault();
-    // search is currently returning all books with rating of 3
     const books = await booksAPI.search(title);
     setBooks(books);
     setTitle('')
   }
-  
-
-  console.log(books)
 
   return (
     <>
@@ -32,6 +28,11 @@ export default function SearchPage() {
         />
         <button type="submit">Search</button>
       </form>
+      <div>
+        {books.map((book, idx) => (
+          <SearchPageItem key={idx} book={book}/>
+        ))}
+      </div>
     </>
   );
 }

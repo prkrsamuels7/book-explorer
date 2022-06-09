@@ -20,12 +20,14 @@ const API_KEY = process.env.API_KEY;
       bookIdsByGenre.push(...ids)
     }
 
+    //Repeat code from controllers/books
     let books = []
     for(const id of bookIdsByGenre) {
       const book = await fetch(`https://www.googleapis.com/books/v1/volumes/${id}?key=${API_KEY}`).then(res => res.json())
       books.push(book)
     }
 
+    //Repeat
     books = books.filter(book => book.id && book.volumeInfo &&
       book.volumeInfo.title && book.volumeInfo.authors &&
       book.volumeInfo.publisher && book.volumeInfo.publishedDate &&
@@ -33,6 +35,7 @@ const API_KEY = process.env.API_KEY;
       book.volumeInfo.averageRating && book.volumeInfo.imageLinks
     );
 
+    //Repeat
     for (const book of books) {
       let newCategories = book.volumeInfo.categories
       newCategories = newCategories.reduce((acc, cat) => acc.concat(cat.split(' / ')), [])

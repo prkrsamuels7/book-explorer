@@ -9,15 +9,48 @@ module.exports = {
 }
 
 async function search(req, res) {
-  // str = req.params.title;
-  // var re = newRegExp(str, "g");
-  const books = await Book.find({rating: 3})
-  console.log(books)
-  res.json(books)
+  const dbBooks = await Book.find({title: { "$regex": req.params.title, "$options": "i"}});
+  const dbApiIds = dbBooks.map(book => book.apiId) // Gets api Ids of matching books
+  
+  const data = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${req.params.title}&maxResults=${30}&key=${API_KEY}`).then(res => res.json());
+  let apiIds = data.items.map(book => book.id) // Grabbing API ids for each book from api query
+  apiIds = apiIds.filter(id => !dbApiIds.includes(id)); // filters for unique APIids
+  
+  //Repeat code from Seed.js
+  let apiBooks = []
+  for(const id of apiIds) {
+    const book = await fetch(`https://www.googleapis.com/books/v1/volumes/${id}?key=${API_KEY}`).then(res => res.json())
+    apiBooks.push(book);
+  }
+
+  //Repeat
+  apiBooks = apiBooks.filter(book => book.id && book.volumeInfo &&
+    book.volumeInfo.title && book.volumeInfo.authors &&
+    book.volumeInfo.publisher && book.volumeInfo.publishedDate &&
+    book.volumeInfo.description && book.volumeInfo.categories &&
+    book.volumeInfo.averageRating && book.volumeInfo.imageLinks
+  );
+  
+  //Repeat
+  for (const book of apiBooks) {
+    let newCategories = book.volumeInfo.categories
+    newCategories = newCategories.reduce((acc, cat) => acc.concat(cat.split(' / ')), [])
+    newCategories = [...new Set(newCategories)]
+    const bookDoc = await Book.create(
+      {
+        apiId: book.id, title: book.volumeInfo.title, authors: book.volumeInfo.authors,
+        publisher: book.volumeInfo.publisher, publishedDate: book.volumeInfo.publishedDate,
+        description: book.volumeInfo.description, categories: newCategories, rating: book.volumeInfo.averageRating,
+        imageLinks: book.volumeInfo.imageLinks
+      }
+    )
+  }
+
+  const results = await Book.find({title: { "$regex": req.params.title, "$options": "i"}});
+
+  res.json(results);
 }
 
-// This is used only for clicking on a book cover in a list
-// genreListPage, or searchPage
 async function getBookByApiId(req, res) {
   const book = await Book.findOne({apiId: req.params.apiId})
   res.json(book)
