@@ -8,7 +8,6 @@ export default function GenreListPage() {
   useEffect(function() {
     async function getBooks() {
       const books = await booksAPI.getBooksByGenre();
-      console.log(books);
       setBookList(books);
     }
     getBooks();

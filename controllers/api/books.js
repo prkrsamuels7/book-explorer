@@ -3,20 +3,25 @@ var fetch = require("node-fetch");
 const API_KEY = process.env.API_KEY;
 
 module.exports = {
+  search,
   getBookByApiId,
   getBooksByGenre,
 }
 
+async function search(req, res) {
+  // str = req.params.title;
+  // var re = newRegExp(str, "g");
+  const books = await Book.find({rating: 3})
+  console.log(books)
+  res.json(books)
+}
+
+// This is used only for clicking on a book cover in a list
+// genreListPage, or searchPage
 async function getBookByApiId(req, res) {
-  // first check DB for book where the req.params.id matches the apiId property
-  // If not, make an API request using req.params.id(apiId) and store in the DB. 
-  // res.json(book from DB)
   const book = await Book.findOne({apiId: req.params.apiId})
   res.json(book)
 }
-
-
-
 
 async function getBooksByGenre(req, res) {
   // To return different books on the home page, change these genres here and in the seed file

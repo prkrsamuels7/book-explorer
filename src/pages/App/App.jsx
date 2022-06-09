@@ -4,6 +4,7 @@ import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import GenreListPage from '../GenreListPage/GenreListPage';
 import BookDetailPage from '../BookDetailPage/BookDetailPage';
+import SearchPage from '../SearchPage/SearchPage';
 import NavBar from '../../components/NavBar/NavBar';
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
             {/* Route components in here */}
             <Route path="/" element={<GenreListPage />} />
             <Route path="/books/:bookApiId" element={<BookDetailPage />} />
+            <Route path="/books/search" element={<SearchPage/>}/>
           </Routes>
         </>
         :

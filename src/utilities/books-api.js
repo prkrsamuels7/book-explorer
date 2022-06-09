@@ -9,3 +9,7 @@ export function getBooksByGenre() {
 export function getBookByApiId(id) {
   return sendRequest(`${BASE_URL}/${id}`)
 }
+
+export function search(title) {
+  return sendRequest(`${BASE_URL}/search/${title}`)
+}

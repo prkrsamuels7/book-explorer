@@ -17,10 +17,14 @@ export default function BookDetailPage() {
   if(!book) return null;
   return (
     <div>
-      <h4>Book Details</h4>
       <div><img src={book.imageLinks.small || book.imageLinks.thumbnail} alt={book.title} /></div>
       <div>{book.title}</div>
+      <div>Rating - {book.rating} / 5</div>
       <div dangerouslySetInnerHTML={{__html: book.description}}/>
+      <div>Author - {book.authors}</div>
+      <div>Publisher - {book.publisher}</div>
+      <div>Published Date - {book.publishedDate}</div>
+      <button>+ Watchlist</button>
     </div>
   );
 }

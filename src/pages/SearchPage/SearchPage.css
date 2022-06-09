@@ -1,0 +1,9 @@
+.search-form{
+  display: flex;
+  width: 80%
+}
+
+.search-input{
+  border: .1rem solid var(--tan-3);
+  border-radius: .5rem;
+}

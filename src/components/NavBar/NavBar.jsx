@@ -20,6 +20,11 @@ export default function NavBar({ user, setUser }) {
           </Link>
         </li>
         <li>
+          <Link to="/books/search">
+            <span>01</span>Search Books
+          </Link>
+        </li>
+        <li>
           <Link to="" onClick={handleLogOut}>Log Out</Link>
         </li>
       </ul>
