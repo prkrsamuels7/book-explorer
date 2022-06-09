@@ -5,6 +5,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import GenreListPage from '../GenreListPage/GenreListPage';
 import BookDetailPage from '../BookDetailPage/BookDetailPage';
 import SearchPage from '../SearchPage/SearchPage';
+import WatchListPage from '../WatchListPage/WatchListPage';
 import NavBar from '../../components/NavBar/NavBar';
 import './App.css';
 
@@ -17,10 +18,10 @@ function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            {/* Route components in here */}
             <Route path="/" element={<GenreListPage />} />
-            <Route path="/books/:bookApiId" element={<BookDetailPage />} />
+            <Route path="/books/:bookApiId" element={<BookDetailPage user={user}/>} />
             <Route path="/books/search" element={<SearchPage/>}/>
+            <Route path="/watchlists" element={<WatchListPage user={user}/>}/>
           </Routes>
         </>
         :

@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
-import "./GenreListItem.css"
+import { Link } from 'react-router-dom'
 
-export default function GenreListItem({ book }) {
-  return (
+export default function WatchListItem({ book }) {
+  return(
     <article>
       <Link to={`/books/${book.apiId}`}>
         <img
@@ -12,5 +11,5 @@ export default function GenreListItem({ book }) {
       </Link>
       <p>{book.title}</p>
     </article>
-  );
+  )
 }

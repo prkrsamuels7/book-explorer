@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function SearchPageItem({ book }) {
   return (
     <article>
-      <Link to={{ pathname: `/books/${book.apiId}` }}>
+      <Link to={`/books/${book.apiId}`}>
         <img
         className=""
         src={book.imageLinks.thumbnail ? book.imageLinks.thumbnail : book.imageLinks.smallThumbnail}

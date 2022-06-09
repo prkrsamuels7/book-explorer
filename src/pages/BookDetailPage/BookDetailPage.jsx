@@ -1,10 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import * as booksAPI from '../../utilities/books-api'
+import * as watchlistAPI from '../../utilities/watchlist-api'
 
-export default function BookDetailPage() {
+export default function BookDetailPage({ user }) {
   const [book, setBook] = useState(null);
   const { bookApiId } = useParams();
+  const [watchlist, setWatchlist] = useState(null); 
 
   useEffect(function () {
     async function getBook() {
@@ -13,6 +15,11 @@ export default function BookDetailPage() {
     }
     getBook();
   }, [bookApiId]);
+
+  const handleAddToWatchlist = async() => {
+      const updatedWatchlist = await watchlistAPI.addToWatchlist(user._id, book._id)
+      setWatchlist(updatedWatchlist);
+  }
 
   if(!book) return null;
   return (
@@ -24,7 +31,7 @@ export default function BookDetailPage() {
       <div>Author - {book.authors}</div>
       <div>Publisher - {book.publisher}</div>
       <div>Published Date - {book.publishedDate}</div>
-      <button>+ Watchlist</button>
+      <button onClick={handleAddToWatchlist}> + Watchlist</button>
     </div>
   );
 }
