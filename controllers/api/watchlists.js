@@ -9,7 +9,10 @@ module.exports = {
 
 async function getBooks(req, res) {
   const list = await Watchlist.findOne({ user: req.params.userId }).populate('books')
-  res.json(list.books)
+  if(list) res.json(list.books)
+  else {
+    res.json([])
+  }
 }
 
 

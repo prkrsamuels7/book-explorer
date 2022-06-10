@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import GenreList from '../../components/GenreList/GenreList'
 import * as booksAPI from '../../utilities/books-api'
+import './GenreListPage.css'
 
 export default function GenreListPage() {
   const [bookList, setBookList] = useState([]);
@@ -15,7 +16,7 @@ export default function GenreListPage() {
 
   return (
     <>
-      <div>
+      <div className="genre-page">
         {bookList.map((books, idx) => (
           <GenreList key={idx} books={books}/>
         ))}

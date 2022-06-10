@@ -1,36 +1,56 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import * as userService from '../../utilities/users-service';
 import './NavBar.css'
 
 export default function NavBar({ user, setUser }) {
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
   function handleLogOut() {
     userService.logOut();
     setUser(null);
   }
 
+  function handleToggle() {
+    setNavbarOpen(prev => !prev)
+  }
+
   return (
-    <nav>
-      <ul className="primay-nav underline-indicators flex">
-        <li>
-          <Link to='/'>
-            <span>00</span>Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/books/search">
-            <span>01</span>Search Books
-          </Link>
-        </li>
-        <li>
-          <Link to="/watchlists">
-            <span>02</span>Watchlist
-          </Link>
-        </li>
-        <li>
-          <Link to="" onClick={handleLogOut}>Log Out</Link>
-        </li>
-      </ul>
-    </nav>
+    <header className="primary-header flex">
+      <div>
+        <p className="logo">bookIMAGE</p>
+      </div>
+      <button
+        className="mobile-nav-toggle"
+        onClick={handleToggle}>
+      </button>
+      <nav>
+        <ul 
+        className="primary-nav underline-indicators flex"
+        style={{transform: navbarOpen ? 'translateX(100%)' : 'translateX(0%)'}}
+        >
+          <li className="ff-sans-cond uppercase text-white letter-spacing-2">
+            <Link to='/'>
+              <span>00</span>Home
+            </Link>
+          </li>
+          <li className="ff-sans-cond uppercase text-white letter-spacing-2">
+            <Link to="/books/search">
+              <span>01</span>Search Books
+            </Link>
+          </li>
+          <li className="ff-sans-cond uppercase text-white letter-spacing-2">
+            <Link to="/watchlists">
+              <span>02</span>Watchlist
+            </Link>
+          </li>
+          <li className="ff-sans-cond uppercase text-white letter-spacing-2">
+            <Link to="" onClick={handleLogOut}>
+              <span>03</span>Log Out
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 }
