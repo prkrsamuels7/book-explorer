@@ -3,14 +3,13 @@ import "./GenreListItem.css"
 
 export default function GenreListItem({ book }) {
   return (
-    <article>
-      <Link to={`/books/${book.apiId}`}>
+    <>
+      <Link to={`/books/${book.apiId}`} className="genre-link">
         <img
           className="genre-cover"
           src={book.imageLinks.thumbnail ? book.imageLinks.thumbnail : book.imageLinks.thumbnail}
           alt={book.title} />
       </Link>
-      <p>{book.title}</p>
-    </article>
+    </>
   );
 }

@@ -1,3 +1,20 @@
-.genre-list {
+.genre-list-container {
   display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.genre-list {
+  gap: .5rem;
+  display: flex;
+  overflow: auto;
+}
+
+.white-text {
+  color: #E3E7F1;
+  font-family: var(--ff-permanent-marker);
+  font-family: var(--ff-work-sans);
+  font-family: var(--ff-comorant-upright);
+  margin-bottom: .8rem;
+  font-size: var(--fs-700);
 }

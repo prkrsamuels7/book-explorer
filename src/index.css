@@ -3,12 +3,10 @@
   --clr-dark: 230 35% 7%;
   --clr-light: 231 77% 90%;
   --clr-white: 0 0% 100%;
-  --ivory: #94B49F;
 
   /* font-sizes */
-  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
   --fs-800: 3.5rem;
-  --fs-700: 1.5rem;
+  --fs-700: 2.5rem;
   --fs-600: 1rem;
   --fs-500: 1.75rem;
   --fs-400: 0.9375rem;
@@ -19,6 +17,9 @@
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
+  --ff-comorant-upright: 'Cormorant Upright', serif;
+  --ff-permanent-marker: 'Permanent Marker', cursive;
+  --ff-work-sans: 'Work Sans', sans-serif;
 }
 
 /* Resets */
@@ -99,7 +100,6 @@ select {
   display: grid;
   place-items: center;
   padding-inline: 1rem;
-
 }
 
 .grid-container * {
@@ -217,11 +217,21 @@ select {
 /*------------------------------------------------------------*/
 
 body {
-  background-color: var(--ivory)
+  background-color: #282C34
 }
 
 img {
   border-radius: .2rem;
+  aspect-ratio: 2 / 3;
+}
+
+::-webkit-scrollbar {
+  height:.6rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #D3EBCD;
+  border-radius: 8px;
 }
 
 .form-container {

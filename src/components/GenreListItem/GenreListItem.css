@@ -1,5 +1,9 @@
 .genre-cover {
-  width: 128px;
-  height: 192px;
-  margin: 0 1rem;
+  width: 250px;
+  height: 375px;
+  margin-bottom: .5rem;
+}
+
+.genre-link {
+  flex-shrink: 0;
 }

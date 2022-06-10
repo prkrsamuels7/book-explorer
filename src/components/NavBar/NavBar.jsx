@@ -17,17 +17,20 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <header className="primary-header flex">
-      <div>
-        <p className="logo">bookIMAGE</p>
+      <div className="flex logo-head">
+        <div className="logo"></div>
+        <Link to='/'>
+          <h2 className="title">Yomu</h2>
+        </Link>
       </div>
       <button
         className="mobile-nav-toggle"
         onClick={handleToggle}>
       </button>
       <nav>
-        <ul 
-        className="primary-nav underline-indicators flex"
-        style={{transform: navbarOpen ? 'translateX(100%)' : 'translateX(0%)'}}
+        <ul
+          className="primary-nav underline-indicators flex"
+          style={{ transform: navbarOpen ? 'translateX(100%)' : 'translateX(0%)' }}
         >
           <li className="ff-sans-cond uppercase text-white letter-spacing-2">
             <Link to='/'>
@@ -36,7 +39,7 @@ export default function NavBar({ user, setUser }) {
           </li>
           <li className="ff-sans-cond uppercase text-white letter-spacing-2">
             <Link to="/books/search">
-              <span>01</span>Search Books
+              <span>01</span>Search
             </Link>
           </li>
           <li className="ff-sans-cond uppercase text-white letter-spacing-2">
@@ -46,7 +49,7 @@ export default function NavBar({ user, setUser }) {
           </li>
           <li className="ff-sans-cond uppercase text-white letter-spacing-2">
             <Link to="" onClick={handleLogOut}>
-              <span>03</span>Log Out
+              <span>03</span>Logout
             </Link>
           </li>
         </ul>

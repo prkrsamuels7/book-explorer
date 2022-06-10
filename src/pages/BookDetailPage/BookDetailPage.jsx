@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import * as booksAPI from '../../utilities/books-api'
 import * as watchlistAPI from '../../utilities/watchlist-api'
+import './BookDetailPage.css'
 
 export default function BookDetailPage({ user }) {
   const [book, setBook] = useState(null);
@@ -24,13 +25,16 @@ export default function BookDetailPage({ user }) {
   if(!book) return null;
   return (
     <div>
-      <div><img src={book.imageLinks.small || book.imageLinks.thumbnail} alt={book.title} /></div>
-      <div>{book.title}</div>
-      <div>Rating - {book.rating} / 5</div>
-      <div dangerouslySetInnerHTML={{__html: book.description}}/>
-      <div>Author - {book.authors}</div>
-      <div>Publisher - {book.publisher}</div>
-      <div>Published Date - {book.publishedDate}</div>
+      <div className="flex poster"><img src={book.imageLinks.small || book.imageLinks.thumbnail} alt={book.title} /></div>
+      <div>
+        <h2>{book.title}</h2>
+        <h3>Rating - {book.rating} / 5</h3>
+        <h3>Author - {book.authors}</h3>
+        <h3>Published Date - {book.publishedDate}</h3>
+      </div>
+      <div className="description-container">
+        <div className="description" dangerouslySetInnerHTML={{__html: book.description}}></div>
+      </div>
       <button onClick={handleAddToWatchlist}> + Watchlist</button>
     </div>
   );

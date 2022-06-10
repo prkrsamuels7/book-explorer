@@ -1,6 +1,24 @@
 .logo {
   margin: 2rem;
   border: none;
+  border: none;
+  background-image: url(../../images/book-solid.svg);
+  background-repeat: no-repeat;
+  width: 2rem;
+  aspect-ratio: 1;
+}
+a {
+  text-decoration: none;
+}
+.logo-head {
+  align-items: center;
+  gap: 0;
+}
+
+.title {
+  font-family: var(--ff-comorant-upright);
+  font-size: var(--fs-800);
+  color: #E3E7F1
 }
 
 .primary-header {
@@ -13,19 +31,19 @@
 }
 
 .primary-nav {
-  --gap: 6rem;
+  --gap: 3rem;
   --underline-gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
-  background: hsl(0 0% 100% / 0.1);
+  background: hsl( var(--clr-white) / 0.05);
   backdrop-filter: blur(1rem);
-  transform: translateX(0%)
+  transform: translateX(0%);
 }
 
 .primary-nav a {
   text-decoration: none;
-  color: black;
+  color: #E3E7F1;
 }
 
 .primary-nav a>span {
@@ -33,7 +51,7 @@
   margin-inline-end: .5em;
 }
 
-@media (max-width: 35em) {
+@media (max-width: 48em) {
   .primary-nav {
     --gap: 3em;
     align-items: flex-start;
@@ -58,5 +76,21 @@
   }
   .mobile-nav-toggle:hover {
     cursor: pointer;
+  }
+}
+
+@media (min-width: 48em) and (max-width: 55em) {
+  .primary-nav {
+    padding: 2rem;
+  }
+  .primary-nav a>span{
+    display: none;
+  }
+}
+
+@media (min-width: 55em) {
+  .primary-nav {
+    --gap: 3rem;
+    padding: 2rem;
   }
 }

@@ -16,9 +16,9 @@ export default function GenreListPage() {
 
   return (
     <>
-      <div className="genre-page">
+      <div className="genre-list-page-container">
         {bookList.map((books, idx) => (
-          <GenreList key={idx} books={books}/>
+          <GenreList key={idx} books={books} idx={idx}/>
         ))}
       </div>
     </>
