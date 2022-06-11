@@ -1,9 +1,26 @@
 .search-form{
   display: flex;
-  width: 80%
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.search-form button {
+  border-radius: .4rem;
+  border: 1px solid white;
+  padding: .5rem;
+  color: white;
+  background-color: var(--main-bg);
+}
+
+.search-form button:hover {
+  cursor: pointer;
 }
 
 .search-input{
   border: .1rem solid var(--tan-3);
-  border-radius: .5rem;
+  border-radius: .4rem;
+  margin: 2rem .5rem;
+  padding: .5rem;
+  width: 80%;
 }
