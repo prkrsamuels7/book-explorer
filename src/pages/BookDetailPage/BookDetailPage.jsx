@@ -85,7 +85,6 @@ export default function BookDetailPage({ user }) {
             ) : (
               <button onClick={handleAddToWatchlist}>+ Watchlist</button>
             )}
-            <button onClick={handleAddToWatchlist}> + Watchlist</button>
           </div>
         </div>
         <div className="description-container">
