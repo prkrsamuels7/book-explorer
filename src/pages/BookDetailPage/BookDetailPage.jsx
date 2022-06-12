@@ -28,6 +28,7 @@ export default function BookDetailPage({ user }) {
 
   async function handleAddToWatchlist() {
     const updatedWatchlist = await watchlistAPI.addToWatchlist(user._id, book._id)
+    setWatched(true);
   }
 
   if (!book) return null;
@@ -43,8 +44,7 @@ export default function BookDetailPage({ user }) {
               <h4>{book.publishedDate}</h4>
               <h4>{book.rating} / 5</h4>
             </section>
-            {watchlist.includes(book._id) ? <button>On Watchlist</button> : <button onClick={handleAddToWatchlist}> + Watchlist</button>}
-            
+            {watchlist.includes(book._id) || watched ? <button>On Watchlist</button> : <button onClick={handleAddToWatchlist}>+ Watchlist</button>}
           </div>
         </div>
         <div className="description-container">
