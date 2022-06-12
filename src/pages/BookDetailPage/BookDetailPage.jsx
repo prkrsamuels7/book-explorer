@@ -47,7 +47,7 @@ export default function BookDetailPage({ user }) {
           />
           <div className="book-info">
             <h3>{book.title}</h3>
-            <h3>{book.authors}</h3>
+            <h3>{book.authors.join(", ")}</h3>
             <section className="rating">
               <h4>{book.publishedDate}</h4>
               <h4>{book.rating} / 5</h4>
@@ -75,10 +75,14 @@ export default function BookDetailPage({ user }) {
           />
           <div className="book-info">
             <h3>{book.title}</h3>
-            <h3>{book.authors}</h3>
+            <h3>{book.authors.join(", ")}</h3>
             <section className="rating">
-              <h4>{book.publishedDate}</h4>
-              <h4>{book.rating} / 5</h4>
+              <div>
+                <h4>{book.publishedDate}</h4>
+              </div>
+              <div>
+                <h4>{book.rating} / 5</h4>
+              </div>
             </section>
             {watchlist.includes(book._id) || watched ? (
               <button>On Watchlist</button>
