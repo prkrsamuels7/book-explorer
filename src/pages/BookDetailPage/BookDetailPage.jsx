@@ -80,6 +80,11 @@ export default function BookDetailPage({ user }) {
               <h4>{book.publishedDate}</h4>
               <h4>{book.rating} / 5</h4>
             </section>
+            {watchlist.includes(book._id) || watched ? (
+              <button>On Watchlist</button>
+            ) : (
+              <button onClick={handleAddToWatchlist}>+ Watchlist</button>
+            )}
             <button onClick={handleAddToWatchlist}> + Watchlist</button>
           </div>
         </div>
