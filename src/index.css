@@ -124,10 +124,45 @@ img {
 }
 
 .form-container {
-  padding: 3rem;
-  background-color: var(--tan-1);
-  border: .1rem solid var(--tan-3);
-  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-container input {
+  padding: 1.3rem;
+  margin: 1rem;
+  border: none;
+  color: white;
+  background-color: var(--main-bg);
+  border-bottom: 2px solid white;
+}
+
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.auth-info h1 {
+  color: white;
+  font-size: var(--fs-800);
+}
+
+.auth-info button {
+  border: 1px solid transparent;
+  border-radius: 15px;
+  margin: 1rem;
+  padding: .5rem 1rem;
+}
+
+.auth-info button:hover {
+  cursor: pointer;
+  background-color: var(--main-bg);
+  border: 1px solid white;
+  color: white;
 }
 
 p.error-message {

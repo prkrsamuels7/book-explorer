@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import WatchListItem from '../../components/WatchListItem/WatchListItem';
 import * as watchlistAPI from '../../utilities/watchlist-api'
+import './WatchListPage.css'
 
 export default function WatchListPage({ user }) {
   const [bookList, setBookList] = useState([]);
@@ -14,10 +15,13 @@ export default function WatchListPage({ user }) {
   }, [user._id])
 
   return (
-    <>
-      {bookList.map((book, idx) => (
-        <WatchListItem key={idx} book={book}/>
-      ))}
-    </>
+    <div className='watchlist'>
+      <h1>Watchlist</h1>
+      <div className='watchlist-results'>
+        {bookList.map((book, idx) => (
+          <WatchListItem key={idx} book={book} />
+        ))}
+      </div>
+    </div>
   );
 };

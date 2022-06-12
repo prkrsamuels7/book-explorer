@@ -10,7 +10,6 @@ export default function SearchPageItem({ book }) {
         src={book.imageLinks.thumbnail ? book.imageLinks.thumbnail : book.imageLinks.smallThumbnail}
         alt={book.title} />
       </Link>
-      <p>{book.title}</p>
     </article>
   );
 }

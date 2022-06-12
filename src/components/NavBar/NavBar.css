@@ -18,7 +18,8 @@ a {
 .title {
   font-family: var(--ff-comorant-upright);
   font-size: var(--fs-800);
-  color: #E3E7F1
+  color: #E3E7F1;
+  margin-left: 2rem;
 }
 
 .primary-header {

@@ -1,0 +1,15 @@
+.watchlist-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 2rem;
+}
+
+.watchlist h1 {
+  color: white;
+  margin-top: 3rem;
+  font-size: inherit;
+  font-size: var(--fs-700);
+}

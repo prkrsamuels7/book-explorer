@@ -28,7 +28,7 @@ export default function SearchPage() {
         />
         <button type="submit">Search</button>
       </form>
-      <div>
+      <div className='search-results'>
         {books.map((book, idx) => (
           <SearchPageItem key={idx} book={book}/>
         ))}

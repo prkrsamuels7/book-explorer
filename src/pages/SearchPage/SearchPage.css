@@ -15,12 +15,36 @@
 
 .search-form button:hover {
   cursor: pointer;
+  color: var(--main-bg);
+  background-color: white;
 }
 
 .search-input{
-  border: .1rem solid var(--tan-3);
-  border-radius: .4rem;
-  margin: 2rem .5rem;
-  padding: .5rem;
+  padding: 1.3rem;
+  margin: 1rem;
+  border: none;
+  color: white;
+  background-color: var(--main-bg);
+  border-bottom: 2px solid white;
   width: 80%;
+}
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 2rem;
+}
+
+.search-results img {
+  height: 193px;
+  width: 128;
+}
+
+@media (min-width: 1200px) {
+  .search-results {
+    margin: 1rem 10rem;
+  }
 }

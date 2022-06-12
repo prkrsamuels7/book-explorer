@@ -9,7 +9,6 @@ export default function WatchListItem({ book }) {
           src={book.imageLinks.thumbnail ? book.imageLinks.thumbnail : book.imageLinks.thumbnail}
           alt={book.title} />
       </Link>
-      <p>{book.title}</p>
     </article>
   )
 }

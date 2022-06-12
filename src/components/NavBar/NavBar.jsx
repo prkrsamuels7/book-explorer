@@ -18,7 +18,6 @@ export default function NavBar({ user, setUser }) {
   return (
     <header className="primary-header flex">
       <div className="flex logo-head">
-        <div className="logo"></div>
         <Link to='/'>
           <h2 className="title">Yomu</h2>
         </Link>
