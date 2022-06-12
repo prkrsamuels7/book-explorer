@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import * as userService from '../../utilities/users-service';
-import './NavBar.css'
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import * as userService from "../../utilities/users-service";
+import "./NavBar.css";
 
 export default function NavBar({ user, setUser }) {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -12,27 +12,26 @@ export default function NavBar({ user, setUser }) {
   }
 
   function handleToggle() {
-    setNavbarOpen(prev => !prev)
+    setNavbarOpen((prev) => !prev);
   }
 
   return (
     <header className="primary-header flex">
-      <div className="flex logo-head">
-        <Link to='/'>
+      <div className="flex logo">
+        <Link to="/">
           <h2 className="title">Yomu</h2>
         </Link>
       </div>
-      <button
-        className="mobile-nav-toggle"
-        onClick={handleToggle}>
-      </button>
+      <button className="mobile-nav-toggle" onClick={handleToggle}></button>
       <nav>
         <ul
           className="primary-nav underline-indicators flex"
-          style={{ transform: navbarOpen ? 'translateX(100%)' : 'translateX(0%)' }}
+          style={{
+            transform: navbarOpen ? "translateX(100%)" : "translateX(0%)",
+          }}
         >
           <li className="ff-sans-cond uppercase text-white letter-spacing-2">
-            <Link to='/'>
+            <Link to="/">
               <span>00</span>Home
             </Link>
           </li>

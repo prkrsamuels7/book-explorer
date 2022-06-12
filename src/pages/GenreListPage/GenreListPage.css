@@ -4,7 +4,7 @@
   width: 100%;
   flex-shrink: 0;
   max-width: 100%;
-  padding: 1.5rem
+  padding: 1.5rem;
 }
 
 @media (min-width: 576px) {

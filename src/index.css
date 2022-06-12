@@ -1,7 +1,7 @@
 :root {
   /* colors */
   --clr-white: 0 0% 100%;
-  --main-bg: #282C34;
+  --main-bg: #282c34;
 
   /* font-sizes */
   --fs-800: 3.5rem;
@@ -16,9 +16,9 @@
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
-  --ff-comorant-upright: 'Cormorant Upright', serif;
-  --ff-permanent-marker: 'Permanent Marker', cursive;
-  --ff-work-sans: 'Work Sans', sans-serif;
+  --ff-comorant-upright: "Cormorant Upright", serif;
+  --ff-permanent-marker: "Permanent Marker", cursive;
+  --ff-work-sans: "Work Sans", sans-serif;
 }
 
 /* Resets */
@@ -101,25 +101,23 @@ select {
   font-size: var(--fs-800);
 }
 
-
-
 /*------------------------------------------------------------*/
 
 body {
-  background-color: #282C34
+  background-color: #282c34;
 }
 
 img {
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   aspect-ratio: 2 / 3;
 }
 
 ::-webkit-scrollbar {
-  height:.6rem;
+  height: 0.6rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #D3EBCD;
+  background-color: #d3ebcd;
   border-radius: 8px;
 }
 
@@ -155,7 +153,7 @@ img {
   border: 1px solid transparent;
   border-radius: 15px;
   margin: 1rem;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .auth-info button:hover {

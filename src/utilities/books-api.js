@@ -1,15 +1,15 @@
-import sendRequest from './send-request';
+import sendRequest from "./send-request";
 
-const BASE_URL = '/api/books';
+const BASE_URL = "/api/books";
 
 export function getBooksByGenre() {
-  return sendRequest(BASE_URL)
+  return sendRequest(BASE_URL);
 }
 
 export function getBookByApiId(id) {
-  return sendRequest(`${BASE_URL}/${id}`)
+  return sendRequest(`${BASE_URL}/${id}`);
 }
 
 export function search(title) {
-  return sendRequest(`${BASE_URL}/search/${title}`)
+  return sendRequest(`${BASE_URL}/search/${title}`);
 }

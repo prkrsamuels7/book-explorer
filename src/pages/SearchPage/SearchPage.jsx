@@ -1,19 +1,18 @@
-import { useState, useEffect } from 'react'
-import * as booksAPI from '../../utilities/books-api'
-import SearchPageItem from '../../components/SearchPageItem/SearchPageItem'
-import './SearchPage.css'
-
+import { useState, useEffect } from "react";
+import * as booksAPI from "../../utilities/books-api";
+import SearchPageItem from "../../components/SearchPageItem/SearchPageItem";
+import "./SearchPage.css";
 
 export default function SearchPage() {
-  const [title, setTitle] = useState('')
-  const [books, setBooks] = useState([])
+  const [title, setTitle] = useState("");
+  const [books, setBooks] = useState([]);
 
   // this function runs everytime title state is updated
   async function handleSearchTitle(evt) {
     evt.preventDefault();
     const books = await booksAPI.search(title);
     setBooks(books);
-    setTitle('')
+    setTitle("");
   }
 
   return (
@@ -28,9 +27,9 @@ export default function SearchPage() {
         />
         <button type="submit">Search</button>
       </form>
-      <div className='search-results'>
+      <div className="search-results">
         {books.map((book, idx) => (
-          <SearchPageItem key={idx} book={book}/>
+          <SearchPageItem key={idx} book={book} />
         ))}
       </div>
     </>

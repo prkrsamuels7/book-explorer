@@ -1,13 +1,13 @@
-import { Component } from 'react';
-import { signUp } from '../../utilities/users-service';
+import { Component } from "react";
+import { signUp } from "../../utilities/users-service";
 
 export default class SignUpForm extends Component {
   state = {
-    name: '',
-    email: '',
-    password: '',
-    confirm: '',
-    error: ''
+    name: "",
+    email: "",
+    password: "",
+    confirm: "",
+    error: "",
   };
 
   handleSubmit = async (evt) => {
@@ -25,17 +25,17 @@ export default class SignUpForm extends Component {
     } catch {
       // Invalid signup
       this.setState({
-        error: 'Sign Up Failed - Try Again'
+        error: "Sign Up Failed - Try Again",
       });
     }
-  }
+  };
 
   handleChange = (evt) => {
     this.setState({
       [evt.target.name]: evt.target.value,
-      error: ''
+      error: "",
     });
-  }
+  };
 
   render() {
     const disable = this.state.password !== this.state.confirm;
@@ -44,17 +44,47 @@ export default class SignUpForm extends Component {
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             <div>
-              <input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleChange} required />
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={this.state.name}
+                onChange={this.handleChange}
+                required
+              />
             </div>
             <div>
-              <input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={this.state.email}
+                onChange={this.handleChange}
+                required
+              />
             </div>
             <div>
-              <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={this.state.password}
+                onChange={this.handleChange}
+                required
+              />
             </div>
-            <input type="password" name="confirm" placeholder="Confirm" value={this.state.confirm} onChange={this.handleChange} required />
+            <input
+              type="password"
+              name="confirm"
+              placeholder="Confirm"
+              value={this.state.confirm}
+              onChange={this.handleChange}
+              required
+            />
           </form>
-          <button type="submit" disabled={disable}>Sign Up</button>
+          <button type="submit" disabled={disable}>
+            Sign Up
+          </button>
           <div>
             <p>OR</p>
           </div>

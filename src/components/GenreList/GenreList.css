@@ -5,16 +5,16 @@
 }
 
 .genre-list {
-  gap: .5rem;
+  gap: 0.5rem;
   display: flex;
   overflow: auto;
 }
 
 .white-text {
-  color: #E3E7F1;
+  color: #e3e7f1;
   font-family: var(--ff-permanent-marker);
   font-family: var(--ff-work-sans);
   font-family: var(--ff-comorant-upright);
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
   font-size: var(--fs-700);
 }
