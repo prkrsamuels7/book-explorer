@@ -73,18 +73,18 @@ export default class SignUpForm extends Component {
                 required
               />
             </div>
-            <input
-              type="password"
-              name="confirm"
-              placeholder="Confirm"
-              value={this.state.confirm}
-              onChange={this.handleChange}
-              required
-            />
+            <div>
+              <input
+                type="password"
+                name="confirm"
+                placeholder="Confirm"
+                value={this.state.confirm}
+                onChange={this.handleChange}
+                required
+              />
+            </div>
+            <button type="submit">Sign Up</button>
           </form>
-          <button type="submit" disabled={disable}>
-            Sign Up
-          </button>
         </div>
       </div>
     );
