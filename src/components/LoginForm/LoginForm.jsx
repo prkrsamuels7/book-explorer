@@ -35,7 +35,7 @@ export default function LoginForm({ setUser }) {
             <input
               type="text"
               name="email"
-              placeholder="email"
+              placeholder="Email"
               value={credentials.email}
               onChange={handleChange}
               required
@@ -45,7 +45,7 @@ export default function LoginForm({ setUser }) {
             <input
               type="password"
               name="password"
-              placeholder="password"
+              placeholder="Password"
               value={credentials.password}
               onChange={handleChange}
               required
@@ -53,11 +53,7 @@ export default function LoginForm({ setUser }) {
           </div>
           <button type="submit">Log In</button>
         </form>
-        <div>
-          <p>OR</p>
-        </div>
       </div>
-      <p className="error-message">&nbsp;{error}</p>
     </div>
   );
 }
